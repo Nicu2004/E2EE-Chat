@@ -22,7 +22,6 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
-/** Clientul genereaza cheile si cripteaza/decripteaza mesajele. */
 public final class ChatClient {
     private static final Base64.Encoder B64 = Base64.getEncoder();
     private static final Base64.Decoder B64D = Base64.getDecoder();
@@ -42,14 +41,15 @@ public final class ChatClient {
     public void start() throws Exception {
         KeyPairGenerator generator = KeyPairGenerator.getInstance("X25519");
         keyPair = generator.generateKeyPair();
-        try (Socket socket = new Socket(host, port);
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
-             BufferedReader console = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8))) {
+        BufferedReader console = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+        Thread receiver = null;
+        try (Socket socket = new Socket(host, port)) {
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
             out = new PrintWriter(socket.getOutputStream(), true, StandardCharsets.UTF_8);
             send("HELLO\t" + id + "\t" + B64.encodeToString(keyPair.getPublic().getEncoded()));
             System.out.println("Conectat ca " + name + " (" + id + "). Asteapta alt participant; /quit inchide chatul.");
 
-            Thread receiver = new Thread(() -> receive(in), "chat-receiver");
+            receiver = new Thread(() -> receive(in), "chat-receiver");
             receiver.setDaemon(true);
             receiver.start();
 
@@ -66,6 +66,7 @@ public final class ChatClient {
                 }
             }
         }
+        if (receiver != null) receiver.join();
         System.out.println("Client inchis.");
     }
 
