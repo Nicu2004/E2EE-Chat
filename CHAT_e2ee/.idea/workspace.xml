@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab96a05-38dd-4b80-b918-0332ee8fe77a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Identity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/IdentityTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ChatClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ChatClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Identity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Identity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/IdentityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/IdentityTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,61 +27,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000000032787" />
-      <entry key="MS500" value="1.005117299288096" />
-      <entry key="S2" value="1.4248976003758596" />
-      <entry key="S5" value="2.6173317058797494" />
-      <entry key="S10" value="4.372898185718171" />
-      <entry key="S30" value="9.675029903923228" />
-      <entry key="S60" value="15.351792168246817" />
-      <entry key="M2" value="23.352382208295918" />
-      <entry key="M5" value="38.28935032319559" />
-      <entry key="M10" value="58.82592556117408" />
-      <entry key="M15" value="78.86362728611336" />
-      <entry key="M30" value="127.12616961216901" />
-      <entry key="H1" value="180.34881609052695" />
-      <entry key="H2" value="223.40596801512487" />
-      <entry key="H4" value="251.63771744871605" />
-      <entry key="D1" value="279.7780241990721" />
-      <entry key="W1" value="285.0979822382436" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="9.294127884833026E-79" />
+      <entry key="S2" value="3.1049324840266925E-20" />
+      <entry key="S5" value="1.573333930248766E-8" />
+      <entry key="S10" value="1.2547715362080028E-4" />
+      <entry key="S30" value="0.05843604439498413" />
+      <entry key="S60" value="0.49026480248111526" />
+      <entry key="M2" value="2.5019311307663816" />
+      <entry key="M5" value="20.575096151702635" />
+      <entry key="M10" value="64.0286778723882" />
+      <entry key="M15" value="101.89538789055241" />
+      <entry key="M30" value="181.81022930418072" />
+      <entry key="H1" value="264.9413725343259" />
+      <entry key="H2" value="331.83303709673737" />
+      <entry key="H4" value="375.93110509508574" />
+      <entry key="D1" value="420.1743028722666" />
+      <entry key="W1" value="428.57453235261124" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.1351697736573226E-43" />
-      <entry key="MS500" value="2.5763933195577962E-9" />
-      <entry key="S2" value="0.007169116644530733" />
-      <entry key="S5" value="0.15728333727246038" />
-      <entry key="S10" value="0.5450486852811907" />
-      <entry key="S30" value="1.9374900094007796" />
-      <entry key="S60" value="3.4117399634194894" />
-      <entry key="M2" value="5.265465113575878" />
-      <entry key="M5" value="9.5749416404707" />
-      <entry key="M10" value="19.799899174810808" />
-      <entry key="M15" value="31.507238387759667" />
-      <entry key="M30" value="59.77418913537297" />
-      <entry key="H1" value="88.94480871682914" />
-      <entry key="H2" value="110.79113668519685" />
-      <entry key="H4" value="124.31691553339078" />
-      <entry key="D1" value="137.22042472583456" />
-      <entry key="W1" value="139.59863231705532" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000001946015515" />
+      <entry key="S10" value="1.0006155019129883" />
+      <entry key="S30" value="1.1577011286842196" />
+      <entry key="S60" value="2.101698221247707" />
+      <entry key="M2" value="5.276597201150836" />
+      <entry key="M5" value="13.119765963085786" />
+      <entry key="M10" value="22.87593056362502" />
+      <entry key="M15" value="33.001068945809195" />
+      <entry key="M30" value="61.15284136027942" />
+      <entry key="H1" value="95.40688460618452" />
+      <entry key="H2" value="123.85719340704142" />
+      <entry key="H4" value="142.49931550126738" />
+      <entry key="D1" value="160.9462169390024" />
+      <entry key="W1" value="164.41293234973662" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.7737824967737673" />
-      <entry key="MS500" value="0.9548753907858487" />
-      <entry key="S2" value="1.399395571879057" />
-      <entry key="S5" value="2.6888872421648786" />
-      <entry key="S10" value="4.789848313473058" />
-      <entry key="S30" value="11.451745425367877" />
-      <entry key="S60" value="18.617368944425504" />
-      <entry key="M2" value="28.49965503201504" />
-      <entry key="M5" value="47.77599696749832" />
-      <entry key="M10" value="78.53984148093319" />
-      <entry key="M15" value="110.28226132374455" />
-      <entry key="M30" value="186.81747805345023" />
-      <entry key="H1" value="269.23176857205215" />
-      <entry key="H2" value="334.15841598828376" />
-      <entry key="H4" value="375.9328674026404" />
-      <entry key="D1" value="416.99443448764123" />
-      <entry key="W1" value="424.69603085309416" />
+      <entry key="MS100" value="2.7880973755822686E-10" />
+      <entry key="MS500" value="0.012276133072930937" />
+      <entry key="S2" value="0.3328629033090927" />
+      <entry key="S5" value="0.6440302564397564" />
+      <entry key="S10" value="0.8031673626237884" />
+      <entry key="S30" value="1.1366163211273692" />
+      <entry key="S60" value="2.5263222585028804" />
+      <entry key="M2" value="7.705371314653506" />
+      <entry key="M5" value="33.6242564875807" />
+      <entry key="M10" value="86.83664876115637" />
+      <entry key="M15" value="134.82568802292653" />
+      <entry key="M30" value="242.89031162982937" />
+      <entry key="H1" value="360.28835558747437" />
+      <entry key="H2" value="455.6503395594511" />
+      <entry key="H4" value="518.4071895289145" />
+      <entry key="D1" value="581.1161031239615" />
+      <entry key="W1" value="592.9868190778972" />
     </decayedShown>
   </component>
   <component name="ProjectId" id="3MZJKan8AEnbXLFeFQ6Rkt74ONX" />
@@ -92,6 +91,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.App.executor": "Run",
+    "JUnit.IdentityTest.executor": "Run",
+    "JUnit.IdentityTest.invalidNameIsRejected.executor": "Run",
+    "JUnit.IdentityTest.savedIdentityLoadsBackTheSameKey.executor": "Run",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/nicu-mamaliga/Documents/CHAT_e2ee",
     "node.js.detected.package.eslint": "true",
@@ -100,7 +102,7 @@
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.IdentityTest.savedIdentityLoadsBackTheSameKey">
     <configuration name="App" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
       <module name="CHAT_e2ee" />
@@ -108,8 +110,66 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="IdentityTest.invalidNameIsRejected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CHAT_e2ee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.IdentityTest" />
+      <option name="METHOD_NAME" value="invalidNameIsRejected(java.nio.file.Path)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IdentityTest.savedIdentityLoadsBackTheSameKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CHAT_e2ee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.IdentityTest" />
+      <option name="METHOD_NAME" value="savedIdentityLoadsBackTheSameKey(java.nio.file.Path)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="JUnit.IdentityTest.invalidNameIsRejected" />
+      <item itemvalue="JUnit.IdentityTest.savedIdentityLoadsBackTheSameKey" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.IdentityTest.savedIdentityLoadsBackTheSameKey" />
+        <item itemvalue="JUnit.IdentityTest.invalidNameIsRejected" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/org/example/IdentityTest.java</url>
+          <line>15</line>
+          <properties class="org.example.IdentityTest" method="savedIdentityLoadsBackTheSameKey">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

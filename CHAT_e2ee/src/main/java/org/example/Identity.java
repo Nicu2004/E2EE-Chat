@@ -25,7 +25,7 @@ public record Identity(String name, KeyPair keyPair) {
 
         Properties properties = new Properties();
         if(!(p.matcher(name)).matches())
-            throw new IllegalArgumentException("exception ");
+            throw new IllegalArgumentException("Name can only contains letter and numbers and underscores");
         Path file = path.resolve(name).resolve("identity.properties");
         if(Files.exists(file))
         {
