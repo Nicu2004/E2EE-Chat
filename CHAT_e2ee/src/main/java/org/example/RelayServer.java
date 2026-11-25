@@ -6,28 +6,43 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /** Serverul nu decripteaza: tine conexiunile si retransmite linii de protocol. */
-public final class RelayServer {
+public final class RelayServer implements AutoCloseable {
     private final int port;
     private final Map<String, Peer> peers = new ConcurrentHashMap<>();
+    private volatile ServerSocket serverSocket;
 
     public RelayServer(int port) { this.port = port; }
 
     public void start() throws IOException {
         try (ServerSocket server = new ServerSocket(port)) {
+            serverSocket = server;
             System.out.println("Releu pornit pe portul " + port + ". Oprire: Ctrl+C");
-            while (true) {
-                Socket socket = server.accept();
-                Thread thread = new Thread(() -> handle(socket), "peer-handler");
-                thread.setDaemon(true);
-                thread.start();
+            try {
+                while (true) {
+                    Socket socket = server.accept();
+                    Thread thread = new Thread(() -> handle(socket), "peer-handler");
+                    thread.setDaemon(true);
+                    thread.start();
+                }
+            } catch (SocketException e) {
+                if (!server.isClosed()) throw e;
+            } finally {
+                serverSocket = null;
             }
         }
+    }
+
+    @Override
+    public void close() throws IOException {
+        ServerSocket server = serverSocket;
+        if (server != null) server.close();
     }
 
     private void handle(Socket socket) {
