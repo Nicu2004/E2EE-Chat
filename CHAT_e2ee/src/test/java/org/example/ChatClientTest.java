@@ -30,7 +30,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.junit.jupiter.api.Test;
-
+import java.util.Properties;
 class ChatClientTest {
 
     @Test
