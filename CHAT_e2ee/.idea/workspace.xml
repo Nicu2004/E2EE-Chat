@@ -1,9 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0ab96a05-38dd-4b80-b918-0332ee8fe77a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Identity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/IdentityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/ChatClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/ChatClientTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000000032787" />
+      <entry key="MS500" value="1.005117299288096" />
+      <entry key="S2" value="1.4248976003758596" />
+      <entry key="S5" value="2.6173317058797494" />
+      <entry key="S10" value="4.372898185718171" />
+      <entry key="S30" value="9.675029903923228" />
+      <entry key="S60" value="15.351792168246817" />
+      <entry key="M2" value="23.352382208295918" />
+      <entry key="M5" value="38.28935032319559" />
+      <entry key="M10" value="58.82592556117408" />
+      <entry key="M15" value="78.86362728611336" />
+      <entry key="M30" value="127.12616961216901" />
+      <entry key="H1" value="180.34881609052695" />
+      <entry key="H2" value="223.40596801512487" />
+      <entry key="H4" value="251.63771744871605" />
+      <entry key="D1" value="279.7780241990721" />
+      <entry key="W1" value="285.0979822382436" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.1351697736573226E-43" />
+      <entry key="MS500" value="2.5763933195577962E-9" />
+      <entry key="S2" value="0.007169116644530733" />
+      <entry key="S5" value="0.15728333727246038" />
+      <entry key="S10" value="0.5450486852811907" />
+      <entry key="S30" value="1.9374900094007796" />
+      <entry key="S60" value="3.4117399634194894" />
+      <entry key="M2" value="5.265465113575878" />
+      <entry key="M5" value="9.5749416404707" />
+      <entry key="M10" value="19.799899174810808" />
+      <entry key="M15" value="31.507238387759667" />
+      <entry key="M30" value="59.77418913537297" />
+      <entry key="H1" value="88.94480871682914" />
+      <entry key="H2" value="110.79113668519685" />
+      <entry key="H4" value="124.31691553339078" />
+      <entry key="D1" value="137.22042472583456" />
+      <entry key="W1" value="139.59863231705532" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.7737824967737673" />
+      <entry key="MS500" value="0.9548753907858487" />
+      <entry key="S2" value="1.399395571879057" />
+      <entry key="S5" value="2.6888872421648786" />
+      <entry key="S10" value="4.789848313473058" />
+      <entry key="S30" value="11.451745425367877" />
+      <entry key="S60" value="18.617368944425504" />
+      <entry key="M2" value="28.49965503201504" />
+      <entry key="M5" value="47.77599696749832" />
+      <entry key="M10" value="78.53984148093319" />
+      <entry key="M15" value="110.28226132374455" />
+      <entry key="M30" value="186.81747805345023" />
+      <entry key="H1" value="269.23176857205215" />
+      <entry key="H2" value="334.15841598828376" />
+      <entry key="H4" value="375.9328674026404" />
+      <entry key="D1" value="416.99443448764123" />
+      <entry key="W1" value="424.69603085309416" />
+    </decayedShown>
+  </component>
   <component name="ProjectId" id="3MZJKan8AEnbXLFeFQ6Rkt74ONX" />
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;/home/nicu-mamaliga/Documents/CHAT_e2ee&quot;
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/nicu-mamaliga/Documents/CHAT_e2ee",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.example.App" />
+      <module name="CHAT_e2ee" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
 </project>
