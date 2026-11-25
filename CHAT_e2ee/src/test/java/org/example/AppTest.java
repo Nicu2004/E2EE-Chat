@@ -1,38 +1,76 @@
+
 package org.example;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
+import org.junit.jupiter.api.Test;
+
+class AppTest {
+
+    @Test
+    void helpCommandPrintsUsage() throws Exception {
+        String text = runAndCaptureOutput("help");
+        assertTrue(text.contains("Comenzi:"));
+        assertTrue(text.contains("java -cp target/classes org.example.App server [port]"));
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    @Test
+    void helpCommandIsCaseInsensitive() throws Exception {
+        assertTrue(runAndCaptureOutput("HELP").contains("Comenzi:"));
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    void emptyArgumentsPrintUsage() throws Exception {
+        assertTrue(runAndCaptureOutput().contains("Comenzi:"));
+    }
+
+    @Test
+    void unknownRoleThrowsException() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> App.main(new String[] {"unknown"})
+        );
+
+        assertTrue(exception.getMessage().contains("Rol necunoscut"));
+    }
+
+    @Test
+    void clientWithoutNameThrowsException() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> App.main(new String[] {"client"})
+        );
+
+        assertTrue(exception.getMessage().contains("Lipseste numele"));
+    }
+
+    @Test
+    void serverWithNonNumericPortThrowsNumberFormatException() {
+        assertThrows(NumberFormatException.class, () -> App.main(new String[] {"server", "abc"}));
+    }
+
+    @Test
+    void clientWithNonNumericPortThrowsNumberFormatException() {
+        assertThrows(NumberFormatException.class, () -> App.main(new String[] {"client", "Ana", "localhost", "abc"}));
+    }
+
+    private String runAndCaptureOutput(String... args) throws Exception {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        PrintStream capturedOut = new PrintStream(output, true, StandardCharsets.UTF_8);
+
+        try {
+            System.setOut(capturedOut);
+            App.main(args);
+        } finally {
+            System.setOut(originalOut);
+            capturedOut.close();
+        }
+
+        return output.toString(StandardCharsets.UTF_8);
     }
 }
