@@ -23,6 +23,11 @@
       <version>${junit.jupiter.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+  <groupId>com.github.auties00</groupId>
+  <artifactId>noise-java</artifactId>
+  <version>1.2</version>
+</dependency>
   </dependencies>
 
   <build>
@@ -37,8 +42,6 @@
             <arg>-Xlint:all</arg>
             <arg>-Werror</arg>
           </compilerArgs>
-          <source>25</source>
-          <target>25</target>
         </configuration>
       </plugin>
 

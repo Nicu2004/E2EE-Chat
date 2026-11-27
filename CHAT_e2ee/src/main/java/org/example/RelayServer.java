@@ -12,7 +12,6 @@ import java.util.Base64;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/** Serverul nu decripteaza: tine conexiunile si retransmite linii de protocol. */
 public final class RelayServer implements AutoCloseable {
     private final int port;
     private final Map<String, Peer> peers = new ConcurrentHashMap<>();
@@ -52,35 +51,55 @@ public final class RelayServer implements AutoCloseable {
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8))) {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true, StandardCharsets.UTF_8);
             String hello = in.readLine();
-            String[] helloFields = fields(hello, 3);
+            String[] helloFields = fields(hello, 2);
 
             if (!"HELLO".equals(helloFields[0])) throw new IOException("Primul pachet trebuie sa fie HELLO");
             id = helloFields[1];
-            String publicKey = helloFields[2];
-            Base64.getDecoder().decode(publicKey);
-            Peer newcomer = new Peer(id, publicKey, out);
+            if (!id.matches("[A-Za-z0-9_]{1,32}")) throw new IOException("ID invalid");
+
+            Peer newcomer = new Peer(id, out);
             if (peers.putIfAbsent(id, newcomer) != null) throw new IOException("ID duplicat");
             registered = true;
 
-            System.out.println("[RELEU] conectat " + id + "; cheie publica primita");
+            System.out.println("[RELEU] conectat " + id);
             for (Peer peer : peers.values()) {
                 if (!peer.id.equals(id)) {
-                    newcomer.send("PEER\t" + peer.id + "\t" + peer.publicKey);
-                    peer.send("PEER\t" + id + "\t" + publicKey);
+                    newcomer.send("PEER\t" + peer.id);
+                    peer.send("PEER\t" + id);
                 }
             }
 
             String line;
             while ((line = in.readLine()) != null) {
-                String[] packet = fields(line, 5);
-                if (!"MSG".equals(packet[0])) continue;
-                byte[] nonce = Base64.getDecoder().decode(packet[3]);
-                byte[] ciphertext = Base64.getDecoder().decode(packet[4]);
-                if (nonce.length != 12 || ciphertext.length < 16) continue;
-                System.out.println("[RELEU] pachet criptat retransmis; " + ciphertext.length + " octeti");
-                Peer recipient = peers.get(packet[2]);
-                if (recipient != null && !recipient.id.equals(id)) {
-                    recipient.send("MSG\t" + id + "\t" + packet[3] + "\t" + packet[4]);
+                String[] header = line.split("\\t", -1);
+                if (header.length == 0) throw new IOException("Pachet invalid");
+
+                if ("HS".equals(header[0])) {
+                    String[] packet = fields(line, 4);
+                    if (!id.equals(packet[1])) throw new IOException("Expeditor HS nevalid");
+                    if (id.equals(packet[2])) continue;
+
+                    byte[] handshakeMessage = Base64.getDecoder().decode(packet[3]);
+                    if (handshakeMessage.length == 0 || handshakeMessage.length > 65_535) continue;
+                    Peer recipient = peers.get(packet[2]);
+                    if (recipient != null) {
+                        recipient.send(line);
+                        System.out.println("[RELEU] pachet HS retransmis; " + handshakeMessage.length + " octeti");
+                    }
+                } else if ("MSG".equals(header[0])) {
+                    String[] packet = fields(line, 4);
+                    if (!id.equals(packet[1])) throw new IOException("Expeditor MSG nevalid");
+                    if (id.equals(packet[2])) continue;
+
+                    byte[] ciphertext = Base64.getDecoder().decode(packet[3]);
+                    if (ciphertext.length < 16 || ciphertext.length > 65_535) continue;
+                    Peer recipient = peers.get(packet[2]);
+                    if (recipient != null) {
+                        recipient.send(line);
+                        System.out.println("[RELEU] pachet criptat retransmis; " + ciphertext.length + " octeti");
+                    }
+                } else {
+                    throw new IOException("Tip de pachet necunoscut");
                 }
             }
         } catch (IOException | IllegalArgumentException e) {
@@ -102,10 +121,10 @@ public final class RelayServer implements AutoCloseable {
 
     private static final class Peer {
         private final String id;
-        private final String publicKey;
         private final PrintWriter out;
-        private Peer(String id, String publicKey, PrintWriter out) {
-            this.id = id; this.publicKey = publicKey; this.out = out;
+        private Peer(String id, PrintWriter out) {
+            this.id = id;
+            this.out = out;
         }
         private synchronized void send(String line) { out.println(line); }
     }
