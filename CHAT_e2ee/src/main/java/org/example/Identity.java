@@ -43,7 +43,7 @@ public record Identity(String name, KeyPair keyPair) {
 
             }
         }
-        else{//save the key pair
+        else{
             Files.createDirectories(file.getParent());
             KeyPair kp = KeyPairGenerator.getInstance("Ed25519").generateKeyPair();
             try(Writer w = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {

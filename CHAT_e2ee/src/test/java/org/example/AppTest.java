@@ -16,6 +16,8 @@ class AppTest {
         String text = runAndCaptureOutput("help");
         assertTrue(text.contains("Comenzi:"));
         assertTrue(text.contains("java -cp target/classes org.example.App server [port]"));
+        assertTrue(text.contains("org.example.App authority-init"));
+        assertTrue(text.contains("org.example.App authority-issue <nume>"));
     }
 
     @Test
